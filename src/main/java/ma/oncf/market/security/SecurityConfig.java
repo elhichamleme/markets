@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/auth/**");
+        web.ignoring().antMatchers("/auth/**").and().ignoring().antMatchers("/markets/**");
     }
 
     @Override
@@ -38,9 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .apply(new JwtConfigurer(jwtTokenProvider))
                 .and()
                 .logout().logoutUrl("auth/sign-out")
-                .and()
-                .authorizeRequests()
-                .antMatchers("/markets/**").authenticated();
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/markets/**").authenticated()
+        ;
 
 
     }

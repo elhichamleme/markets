@@ -26,9 +26,9 @@ public class MarketAdministratorController {
     @PostMapping("/add")
     public ResponseEntity addMarket(@RequestBody MarketAdministrator marketAdministrator)
     {
-        Optional<MarketAdministrator> optionalMarket = marketAdministratorRepository.findByUsername(marketAdministrator.getUsername());
-        if(optionalMarket.isPresent())
-            throw new MarketAdministratorAlreadyExistException("Market Administrator exists");
+//        Optional<MarketAdministrator> optionalMarket = marketAdministratorRepository.findByUsername(marketAdministrator.getUser().getUsername());
+//        if(optionalMarket.isPresent())
+//            throw new MarketAdministratorAlreadyExistException("Market Administrator exists");
 
         marketAdministratorRepository.save(marketAdministrator);
         return ResponseEntity.ok().build();

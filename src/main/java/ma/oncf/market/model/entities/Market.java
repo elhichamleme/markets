@@ -1,6 +1,7 @@
 package ma.oncf.market.model.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -14,7 +15,10 @@ public class Market {
     private Date startDate;
     private Date endDate;
     private long budgetPlanned;
+    @DBRef
     private MarketAdministrator marketAdministrator;
+    @DBRef
+    private Prestataire prestataire;
 
     public String getId() {
         return id;
@@ -62,5 +66,13 @@ public class Market {
 
     public void setMarketAdministrator(MarketAdministrator marketAdministrator) {
         this.marketAdministrator = marketAdministrator;
+    }
+
+    public Prestataire getPrestataire() {
+        return prestataire;
+    }
+
+    public void setPrestataire(Prestataire prestataire) {
+        this.prestataire = prestataire;
     }
 }

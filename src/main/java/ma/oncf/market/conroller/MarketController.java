@@ -17,6 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/markets")
 @Secured("")
+@CrossOrigin
 public class MarketController {
 
     @Autowired
